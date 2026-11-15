@@ -22,3 +22,12 @@ Cypress.Commands.add("login", (email, password) => {
   cy.contains("button", "Login").click();
   cy.url().should("include", "/garage");
 });
+
+
+Cypress.Commands.add("createExpense", (expenseData) => {
+  return cy.request({
+    method: "POST",
+    url: "/api/expenses",
+    body: expenseData,
+  });
+});
