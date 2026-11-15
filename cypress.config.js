@@ -1,3 +1,4 @@
+
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
@@ -5,7 +6,6 @@ module.exports = defineConfig({
     baseUrl: "https://example.cypress.io",
 
     setupNodeEvents(on, config) {
-      // Здесь можно добавить обработчики событий
     },
   },
 
@@ -15,4 +15,13 @@ module.exports = defineConfig({
   defaultCommandTimeout: 10000,
 
   video: false,
+
+  reporter: "mochawesome",
+
+  reporterOptions: {
+    reportDir: "cypress/reports",
+    overwrite: false,
+    html: true,
+    json: true,
+  },
 });
